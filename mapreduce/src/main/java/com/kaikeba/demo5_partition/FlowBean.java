@@ -1,4 +1,4 @@
-package com.kaikeba.demo5;
+package com.kaikeba.demo5_partition;
 
 import org.apache.hadoop.io.Writable;
 
@@ -6,11 +6,18 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
+/**
+ * @BelongsProject: bigdata
+ * @BelongsPackage: com.kaikeba.demo5
+ * @Author: luk
+ * @CreateTime: 2019/12/5 21:28
+ */
 public class FlowBean implements Writable {
     private Integer  upFlow;
     private Integer  downFlow;
     private Integer  upCountFlow;
     private Integer  downCountFlow;
+
     /**
      * 序列化方法
      * @param out

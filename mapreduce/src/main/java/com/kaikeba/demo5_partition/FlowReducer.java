@@ -1,11 +1,17 @@
-package com.kaikeba.demo5;
+package com.kaikeba.demo5_partition;
 
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
 import java.io.IOException;
 
-public class FlowReducer  extends Reducer<Text,FlowBean,Text,Text> {
+/**
+ * @BelongsProject: bigdata
+ * @BelongsPackage: com.kaikeba.demo5
+ * @Author: luk
+ * @CreateTime: 2019/12/5 21:59
+ */
+public class FlowReducer extends Reducer<Text, FlowBean, Text, Text> {
 
     @Override
     protected void reduce(Text key, Iterable<FlowBean> values, Context context) throws IOException, InterruptedException {

@@ -1,4 +1,4 @@
-package com.kaikeba.demo5;
+package com.kaikeba.demo5_partition;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
@@ -10,34 +10,40 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-public class FlowMain  extends Configured implements Tool {
+/**
+ * @BelongsProject: bigdata
+ * @BelongsPackage: com.kaikeba.demo5
+ * @Author: luk
+ * @CreateTime: 2019/12/5 22:27
+ */
+public class FlowMain extends Configured implements Tool {
+
     @Override
     public int run(String[] args) throws Exception {
         //获取job对象
-        Job job = Job.getInstance(super.getConf(), "flowCount");
-        //如果程序打包运行必须要设置这一句
-        job.setJarByClass(FlowMain.class);
+        Job job = Job.getInstance(super.getConf(), "FlowMain");
 
         job.setInputFormatClass(TextInputFormat.class);
-        TextInputFormat.addInputPath(job,new Path(args[0]));
+        TextInputFormat.addInputPath(job, new Path("E:\\开课吧\\08_hadoop\\1202_课前资料_mr与yarn\\3、第三天\\6、自定义分区操作\\数据\\input"));
 
         job.setMapperClass(FlowMapper.class);
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(FlowBean.class);
 
+        //分区
         job.setPartitionerClass(PartitionOwn.class);
-        job.setNumReduceTasks(Integer.parseInt(args[2]));
+        job.setNumReduceTasks(6);
 
         job.setReducerClass(FlowReducer.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
+
         job.setOutputFormatClass(TextOutputFormat.class);
+        TextOutputFormat.setOutputPath(job, new Path(""));
 
-        TextOutputFormat.setOutputPath(job,new Path(args[1]));
         boolean b = job.waitForCompletion(true);
-        return b?0:1;
+        return b ? 0 : 1;
     }
-
 
     public static void main(String[] args) throws Exception {
         Configuration configuration = new Configuration();
@@ -47,5 +53,4 @@ public class FlowMain  extends Configured implements Tool {
         int run = ToolRunner.run(configuration, new FlowMain(), args);
         System.exit(run);
     }
-
 }

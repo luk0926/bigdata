@@ -1,4 +1,4 @@
-package com.kaikeba.demo5;
+package com.kaikeba.demo5_partition;
 
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -6,9 +6,17 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
 
-public class FlowMapper extends Mapper<LongWritable,Text,Text,FlowBean> {
+/**
+ * @BelongsProject: bigdata
+ * @BelongsPackage: com.kaikeba.demo5
+ * @Author: luk
+ * @CreateTime: 2019/12/5 21:42
+ */
+public class FlowMapper extends Mapper<LongWritable, Text, Text, FlowBean> {
+
     private FlowBean flowBean ;
     private Text text;
+
 
     @Override
     protected void setup(Context context) throws IOException, InterruptedException {
@@ -30,6 +38,5 @@ public class FlowMapper extends Mapper<LongWritable,Text,Text,FlowBean> {
         flowBean.setUpCountFlow(Integer.parseInt(upCountFlow));
         flowBean.setDownCountFlow(Integer.parseInt(downCountFlow));
         context.write(text,flowBean);
-
     }
 }
