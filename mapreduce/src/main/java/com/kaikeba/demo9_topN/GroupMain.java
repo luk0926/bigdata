@@ -1,4 +1,4 @@
-package com.kaikeba.demo8_group;
+package com.kaikeba.demo9_topN;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
