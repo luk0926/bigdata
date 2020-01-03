@@ -14,6 +14,7 @@
         <module>zookeeper</module>
         <module>hive_udf</module>
         <module>hbase</module>
+        <module>flume</module>
     </modules>
 
 
