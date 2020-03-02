@@ -15,6 +15,7 @@
         <module>hive_udf</module>
         <module>hbase</module>
         <module>flume</module>
+        <module>kafka</module>
     </modules>
 
 
