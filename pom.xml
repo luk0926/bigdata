@@ -16,6 +16,7 @@
         <module>hbase</module>
         <module>flume</module>
         <module>kafka</module>
+        <module>spark</module>
     </modules>
 
 
