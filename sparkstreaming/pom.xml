@@ -15,7 +15,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <scala.version>2.11.8</scala.version>
-        <spark.version>2.3.0</spark.version>
+        <spark.version>2.2.1</spark.version>
         <hadoop.version>2.7.5</hadoop.version>
         <encoding>UTF-8</encoding>
     </properties>
@@ -56,7 +56,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.39</version>
+            <version>5.1.38</version>
             <scope>provided</scope>
         </dependency>
 
@@ -81,19 +81,8 @@
             <version>3.1.0</version>
             <scope>provided</scope>
         </dependency>
-
-        <dependency>
-            <groupId>c3p0</groupId>
-            <artifactId>c3p0</artifactId>
-            <version>0.9.1.2</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.38</version>
-        </dependency>
     </dependencies>
+
 
 
     <build>

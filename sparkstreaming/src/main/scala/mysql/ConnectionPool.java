@@ -16,7 +16,7 @@ public class ConnectionPool {
 
     private static ComboPooledDataSource dataSource = new ComboPooledDataSource();
     static {
-        dataSource.setJdbcUrl("jdbc:mysql://master:3306/test");//设置连接数据库的URL
+        dataSource.setJdbcUrl("jdbc:mysql://node03:3306/test");//设置连接数据库的URL
 
         dataSource.setUser("root");//设置连接数据库的用户名
 
