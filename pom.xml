@@ -17,6 +17,7 @@
         <module>flume</module>
         <module>kafka</module>
         <module>spark</module>
+        <module>sparkstreaming</module>
     </modules>
 
 
