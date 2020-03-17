@@ -18,6 +18,7 @@
         <module>kafka</module>
         <module>spark</module>
         <module>sparkstreaming</module>
+        <module>flink</module>
     </modules>
 
 
