@@ -65,8 +65,6 @@ class MyWatermarks implements AssignerWithPeriodicWatermarks<Tuple2<String, Long
     private Long currentTimemillis = 0L;
     private Long maxWaterMarks = 10000L;
 
-    FastDateFormat fastDateFormat = FastDateFormat.getInstance("yyyy-MM-dd HH:mm:ss:SSS");
-
     @Nullable
     @Override
     public Watermark getCurrentWatermark() {
@@ -84,6 +82,14 @@ class MyWatermarks implements AssignerWithPeriodicWatermarks<Tuple2<String, Long
 
 class MyWindowFunction implements WindowFunction<Tuple2<String, Long>, String, Tuple, TimeWindow> {
 
+    /**
+     *
+     * @param key      输入数据类型
+     * @param window   窗口
+     * @param input     窗口输入数据
+     * @param out       输出数据
+     * @throws Exception
+     */
     @Override
     public void apply(Tuple key, TimeWindow window, Iterable<Tuple2<String, Long>> input, Collector<String> out) throws Exception {
         String keyStr = key.toString();
